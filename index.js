@@ -102,15 +102,10 @@ const unifiedServer = (req, res) => {
 // Define the handlers
 const handlers = {};
 
-// Sample handler
-handlers.sample = (data, cb) => {
+// Ping handler
+handlers.ping = (data, cb) => {
   // Callback a http status code, and a payload object
-  cb(406, {'name' : 'sample handler'})
-}
-
-// Another handler
-handlers.another = (data, cb) => {
-  cb(405, {'name' : 'another'})
+  cb(200, {'name' : 'ping'})
 }
 
 // Not found handler
@@ -120,5 +115,5 @@ handlers.notFound = (data, cb) => {
 
 // Define a request router
 const router = {
-  'sample': handlers.sample
+  'ping': handlers.ping
 }
