@@ -10,6 +10,7 @@ const url = require('url')
 const StringDecoder = require('string_decoder').StringDecoder
 const config = require('./config')
 const fs = require('fs')
+const handlers = require('./lib/handlers')
 
 // Instantiate the HTTP server
 const httpServer = http.createServer((req, res) =>
@@ -93,21 +94,9 @@ const unifiedServer = (req, res) => {
 
       // Log
       console.log('Returning this response:', statusCode, payload)
-
     })
   })
 }
-
-// Define the handlers
-const handlers = {};
-
-// Ping handler
-handlers.ping = (data, cb) =>
-  // Callback a http status code, and a payload object
-  cb(200, {'name' : 'ping'})
-
-// Not found handler
-handlers.notFound = (data, cb) => cb(404)
 
 // Define a request router
 const router = {
