@@ -58,9 +58,8 @@ const unifiedServer = (req, res) => {
   // Get the user payload, if any
   const decoder = new StringDecoder('utf-8')
   let buffer = ''
-  req.on('data', (data) => {
-    buffer += decoder.write(data)
-  })
+  req.on('data', (data) => buffer += decoder.write(data))
+
   req.on('end', () => {
     buffer += decoder.end()
 
@@ -103,15 +102,12 @@ const unifiedServer = (req, res) => {
 const handlers = {};
 
 // Ping handler
-handlers.ping = (data, cb) => {
+handlers.ping = (data, cb) =>
   // Callback a http status code, and a payload object
   cb(200, {'name' : 'ping'})
-}
 
 // Not found handler
-handlers.notFound = (data, cb) => {
-  cb(404)
-}
+handlers.notFound = (data, cb) => cb(404)
 
 // Define a request router
 const router = {
