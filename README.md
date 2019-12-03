@@ -6,6 +6,11 @@
 
 Uptmon app allows users to enter URLs the want monitored, and receive alerts when those resources "go down" or "come back up".
 
+**Development is in progress.**
+
+### Usage
+<pre>Development is in progress</pre>
+
 ## Specs
 
 1. The API listens on a PORT and accepts incomming HTTP request for POST, GET, PUT, DELETE, HEAD.
